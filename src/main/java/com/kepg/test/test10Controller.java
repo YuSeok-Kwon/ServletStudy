@@ -52,7 +52,6 @@ public class test10Controller extends HttpServlet{
 				+		"</body>"
 				+ "</html>");
 		
-		
 	}
 	
 }
