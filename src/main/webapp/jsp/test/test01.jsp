@@ -14,9 +14,9 @@
 <%
 	int[] scores = {80, 90, 100, 95, 80};
 	int sum = 0;
-	for(int i = 0; i < scores.length; i++){
+	for(int i = 0; i < scores.length; i++)
 		sum += scores[i];
-	}
+	
 	double average = (double)sum / scores.length;
 %>
 	
