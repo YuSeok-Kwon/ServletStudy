@@ -28,13 +28,35 @@
 		score3.put("국어",98);
 		score3.put("영어",60);
 		score3.put("수학",70);
-		scoreList.add(score2);
+		scoreList.add(score3);
 		
 		Map<String, Integer> score4 = new HashMap<>();
 		score4.put("국어",96);
 		score4.put("영어",79);
 		score4.put("수학",80);	
-		scoreList.add(score2);
+		scoreList.add(score4);
+		
+		Set<String> keys = score1.keySet();
+		int studentNumber = 1;
 	%>
+	
+	<table border=1>
+		<tr>
+			<th>학생번호</th>
+			<% for(String subject : keys) { %>
+				<th><%= subject %></th>
+				<% } %>
+		</tr>
+		<% for(Map<String, Integer> maps : scoreList ) { %>
+		<tr>
+			<td><%= studentNumber %></td>
+			<% for(String subject : keys) { %>
+					<td><%= maps.get(subject) %></td>
+					<% } %>
+		</tr>
+		<% 
+		studentNumber++;
+		} %>
+	</table>
 </body>
 </html>
