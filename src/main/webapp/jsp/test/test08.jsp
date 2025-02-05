@@ -56,29 +56,31 @@
     };
     list.add(map);
 	%>
-	
-	<h1>책 목록</h1>
-	<div class="px-5">
-	<table class="table text-start">
-		
-		<thead>
-			<tr>
-				<th>id</th>
-				<th class="col-4">표지</th>
-				<th class="text-center col-7">제목</th>
-			</tr>
-		</thead>
-		<tbody>
-			<% for(Map<String, Object> map1 : list) { %>
-			<tr>
-				<td><%= map1.get("id")%></td>
-				<td><div><img src="<%= map1.get("image") %>" class="col-4"></div></td>
-				<td class="text-center col-7 fw-light fs-1 text-primary"><a href="/jsp/test/test08_1.jsp?title=<%= map1.get("title") %>" class="text-decoration-none" target="_blank"><%= map1.get("title") %></a></td>
-			</tr>
-			<% } %>
-	</table>
+	<div class="container">
+	<h1 class="text-center">책 목록</h1>
+		<div class="px-5">
+			<table class="table text-start">
+				
+				<thead>
+					<tr>
+						<th>id</th>
+						<th class="col-4">표지</th>
+						<th class="text-center col-7">제목</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% for(Map<String, Object> map1 : list) { %>
+					<tr>
+						<td><%= map1.get("id")%></td>
+						<td><img src="<%= map1.get("image") %>" class="col-4"></td>
+						<td class="text-center col-7 fw-light display-4 text-primary">
+							<a href="/jsp/test/test08_1.jsp?id=<%= map1.get("id") %>" class="text-decoration-none" target="_blank"><%= map1.get("title") %></a>
+						</td>
+					</tr>
+					<% } %>
+			</table>
+		</div>
 	</div>
-	
 	
 	
 	

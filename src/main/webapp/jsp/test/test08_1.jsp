@@ -56,22 +56,24 @@
     };
     list.add(map);
     
-	String title = request.getParameter("title");
+	int id = Integer.parseInt(request.getParameter("id"));
+	
 	%>
 
-	<% for(Map<String, Object>map1 : list) {
-		if(map1.get("title").equals(title)){ %>
-			<div class="d-flex p-5">
-				<div class="mx-3"><img src="<%= map1.get("image") %>"></div>
-				<div>
-					<div class="display-1 fw-bolder"><%= map1.get("title") %></div>
-					<div class="display-3 fw-light text-info"><%= map1.get("author") %></div>
-					<div class="display-5 fw-light text-muted"><%= map1.get("publisher") %></div>
+	<div class="container">
+		<% for(Map<String, Object>map1 : list) {
+			if((Integer)map1.get("id") == id){ %>
+				<div class="d-flex p-5">
+					<div class="mx-3"><img src="<%= map1.get("image") %>"></div>
+					<div>
+						<div class="display-1 fw-bolder"><%= map1.get("title") %></div>
+						<div class="display-3 fw-light text-info"><%= map1.get("author") %></div>
+						<div class="display-5 fw-light text-muted"><%= map1.get("publisher") %></div>
+					</div>
 				</div>
-			</div>
-		<% }
-		} %>
-		
+			<% }
+			} %>
+	</div>
 	
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
