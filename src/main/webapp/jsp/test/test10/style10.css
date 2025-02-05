@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+.container{
+	margin : 0, auto;
+	padding : 30px;
+}
+	
+.profile {
+	border : 1px solid green;
+	padding : 20px;
+}
+
+.artistImg  {
+	width : 180px;
+	height : 180px;
+}
+.albumImg {
+	width : 250px;
+	height : 250px;
+}
+.nav-link {
+	color : black;
+	font-size : 24px;
+	font-weight : 700;
+}
+.searchInput {
+	border-radius :5px 0 0 5px;
+	border : 1px solid green;
+	width : 500px;
+}
+.searchbtn {
+	border-radius: 0 5px 5px 0;
+}
+
+.details  p {
+	color : grey;
+	font-size : 14px;
+}
