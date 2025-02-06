@@ -92,6 +92,7 @@
     
     String searchParam = request.getParameter("search");
     String search = (searchParam != null && !searchParam.isEmpty()) ?request.getParameter("search") : ""; 
+    
     String idParam = request.getParameter("id");
     int id = (idParam != null && !idParam.isEmpty()) ? Integer.parseInt(idParam) : -1;
 %>
@@ -102,7 +103,7 @@
 				<h1 class="text-success me-4">Melong</h1>
 				<form method="get" action="#" class="input-group">
 					<input type="text" name="search" class="form-coctrol searchInput me-0">
-					<button type="submit" class="btn btn-info searchBtn">검색</button>
+					<button type="submit" class="btn btn-success searchBtn">검색</button>
 				</form>
 			</div>
 		</header>
@@ -149,7 +150,9 @@
 				<%for(Map<String, Object>music:musicList) { %>
 				<tr>
 					<td><%= music.get("id") %></td>
-					<td><a href="/jsp/test/test10/detail.jsp?id=<%= music.get("id") %>"><%= music.get("title") %></a></td>
+					<td>
+						<a href="/jsp/test/test10/detail.jsp?id=<%= music.get("id") %>"><%= music.get("title") %></a>
+					</td>
 					<td><%= music.get("album") %></td>
 				</tr>
 				<% } %>

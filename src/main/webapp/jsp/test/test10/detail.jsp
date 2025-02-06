@@ -118,9 +118,11 @@
 		</nav>
 		<main>
 		<% for(Map<String, Object>music:musicList) {
-			if((Integer)music.get("id") == id || music.get("title").equals(search)) { 
-				int minutes = (Integer)music.get("time") / 60;
-				int secondes = (Integer)music.get("time") % 60; %>
+			 int listId = (Integer)music.get("id");
+			 String listTitle = (String)music.get("title");
+				if( listId == id || listTitle.equals(search)) { 
+					int minutes = (Integer)music.get("time") / 60;
+					int secondes = (Integer)music.get("time") % 60; %>
 			<div class="profile d-flex">
 					<div class="me-3">
 						<img src="<%= music.get("thumbnail") %>" alt="<%= music.get("album") %> 앨범사진" class="albumImg">	
