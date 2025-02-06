@@ -99,11 +99,13 @@
 	
 	<div class="container">
 		<header class="mb-3">
-			<div class="d-flex align-items-center">
-				<h1 class="text-success me-4">Melong</h1>
-				<form method="get" action="#" class="input-group">
-					<input type="text" name="search" class="form-coctrol searchInput me-0">
-					<button type="submit" class="btn btn-success searchBtn">검색</button>
+			<div class="d-flex me-5 align-items-center">
+				<h1 class="text-success me-5">Melong</h1>
+				<form method="get" action="/jsp/test/test10/detail.jsp">
+					<div class="input-group" style="width : 500px">
+					  <input type="text" class="form-control" name="search" >
+					  <button class="btn btn-success" type="submit">검색</button>
+					</div>
 				</form>
 			</div>
 		</header>
@@ -128,17 +130,17 @@
 		</nav>
 		<main>
 			<div class="profile d-flex">
-			<div class="me-3">
-				<img src="<%= artistInfo.get("photo") %>" alt="가수 프로필 사진" class="artistImg">	
+				<div class="me-3">
+					<img src="<%= artistInfo.get("photo") %>" alt="가수 프로필 사진" class="artistImg">	
+				</div>
+				<div>
+					<p class="fs-1 mb-2"><%= artistInfo.get("name") %></p>
+					<p class="mb-1 fs-5 fw-normal"><%= artistInfo.get("agency") %></p>
+					<p class="fs-5 fw-normal"><%= artistInfo.get("debute") %>데뷔</p>
+				</div>
 			</div>
-			<div>
-				<p class="fs-1 mb-2"><%= artistInfo.get("name") %></p>
-				<p class="mb-1 fs-5 fw-normal"><%= artistInfo.get("agency") %></p>
-				<p class="fs-5 fw-normal"><%= artistInfo.get("debute") %>데뷔</p>
-			</div>
-		</div>
 		<div class="fs-1 fw-normal mt-2"> 곡 목록</div>
-		<table class="table">
+		<table class="table table-sm">
 			<thead>
 				<tr>
 					<th>no</th>
@@ -156,10 +158,13 @@
 					<td><%= music.get("album") %></td>
 				</tr>
 				<% } %>
-			</tbody>
+			</tbody>	
 			</table>
-		
 		</main>
+		<footer>
+			<hr>
+			<p class="fs-6 text-secondary">Copyright marondal all right reserved</p>
+		</footer>
 	</div>
 	
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>

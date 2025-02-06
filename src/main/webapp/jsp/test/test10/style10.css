@@ -18,7 +18,7 @@
 	width : 250px;
 	height : 250px;
 }
-.nav-link {
+li > .nav-link {
 	color : black;
 	font-size : 24px;
 	font-weight : 700;
