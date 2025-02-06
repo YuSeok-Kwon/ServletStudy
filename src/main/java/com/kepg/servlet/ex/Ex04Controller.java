@@ -1,4 +1,4 @@
-package com.kepg.test;
+package com.kepg.servlet.ex;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/servlet/test07")
-public class Test07Controller extends HttpServlet{
+@WebServlet("/servlet/ex04")
+public class Ex04Controller extends HttpServlet{
 	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -19,25 +19,27 @@ public class Test07Controller extends HttpServlet{
 	 
 	 PrintWriter out = response.getWriter();
 	 
-	 String address = request.getParameter("address");
-	 String creditCard = request.getParameter("creditCard");
-	 String price = request.getParameter("price");
+	 String nameString = request.getParameter("name");
+	 String birthString = request.getParameter("birth");
+	 
+	 int year = Integer.parseInt(birthString.substring(0, 4));
+	 
+	 int age = 2025 - year + 1;
 	 
 	 out.println(""
 			 + "<html>"
-			 +		"<head><title>주문</title></head>"
-			 +		"<body>"
+			 +		"<head><title>정보</title></head>"
+			 +		"<body>");
+	 out.println(""
+			 + 			"<h2> 이름 : " + nameString
+			 +			"<h2> 나이 : " + age
 			 );
 	 
 	 out.println(""
-			 +			"<h3>" + address + "로 배달 준비중 </h3>"
-			 + 			"<hr>"
-			 +			"<div>결제 금액 : " + price +"원 </div>"
-			 );
+			 +		"</body>"
+			 + "</html>"
+			 ); 
 	 
-	 out.println(""
-			 + 		"</body>"
-			 + "</html>");
 	}
 
 }

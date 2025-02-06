@@ -1,4 +1,4 @@
-package com.kepg.test;
+package com.kepg.servlet.test;
 
 import java.io.IOException;
 import java.io.PrintWriter;
