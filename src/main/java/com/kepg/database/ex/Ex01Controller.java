@@ -63,10 +63,10 @@ public class Ex01Controller extends HttpServlet {
 //					+ "VALUES\n"
 //					+ "('권무무 컴퍼니', '펫샵', '중소기업', '5');";
 //			
-//			// INSERT, UPDATE, DELETE -> 수정하면 끝, 결과가 없는 것들
+//			// INSERT, UPDATE, DELETE -> 수정하면 끝, 결과가 없는 것들은 executeUpdate사용
 //			int count = statement.executeUpdate(query); //실행된 행의 개수
 //			
-//			out.println("삽입 결과 : " + count);
+//			out.println("삽입 결과 : " + count); 
 //			
 //			statement.close(); 
 			
