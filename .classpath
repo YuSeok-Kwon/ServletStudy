@@ -13,7 +13,7 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="/Users/yu_seok/Documents/Cording/apache-tomcat-9.0.98/lib/mysql-connector-j-9.2.0.jar">
+	<classpathentry kind="lib" path="/Users/yu_seok/Documents/Cording/Servlet/apache-tomcat-9.0.98/lib/mysql-connector-j-9.2.0.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
