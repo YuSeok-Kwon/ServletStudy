@@ -45,6 +45,24 @@ public class MysqlService {
 		}
 	}
 	// 저장, 수정, 삭제 수행기능
+	public int update(String query) {
+
+		try {
+			Statement statement = connection.createStatement();
+			
+			return statement.executeUpdate(query);
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+			
+			return -1;
+		}
+		
+		
+	}
+	
+	
 	
 	// 데이터 베이스 접속 끊기
 	public boolean disconnect() {
