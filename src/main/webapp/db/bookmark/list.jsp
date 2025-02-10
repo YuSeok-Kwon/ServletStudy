@@ -16,6 +16,7 @@
 <%
 	MysqlService sql = MysqlService.getInstance();
 	sql.connect();
+	
 	List<Map<String,Object>> resultList= sql.select("SELECT * FROM bookmark ORDER BY id DESC;");
  %>
 	<table border=1 class="table text-center">
@@ -27,10 +28,13 @@
 		</thead>
 		<tbody>
 			<h1 class="text-center mb-3">즐겨찾기 목록</h1>
-			<% while(resultset.next()) {
-				String name = resultset.getString("name");
-				String url = resultset.getString("url");
-				int id = resultset.getInt("id");%>
+			<% 
+				for(Map<String,Object> map:resultList){
+					
+					String name = (String)map.get("id");
+					String url = (String)map.get("url");
+					String id = (String)map.get("id");
+			%>
 			
 			<tr>
 				<td><%= name %></td>
