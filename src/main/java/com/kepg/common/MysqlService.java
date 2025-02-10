@@ -3,6 +3,7 @@ package com.kepg.common;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ public class MysqlService {
 	// static 멤버변수는 객체 생성없이 사용할 수 있는 멤버변수
 	private static MysqlService mysqlservice = null;
 	
-	private MysqlService() { //기본 생성자를 private로 설정해서 호출 할 수 없게 함
+	private MysqlService() { //기본 생성자를 private로 설정해서 호출 할 수 없게 함 j
 		
 	}
 	
@@ -81,12 +82,26 @@ public class MysqlService {
 			//		{"id":4,"name":다음,"url":http://daum.net}
 			//]
 			
+			// 조회된 결과 컬럼 목록
+			ResultSetMetaData rsmd = resultSet.getMetaData(); // resultset에 대한 데이터
+			int columnCount = rsmd.getColumnCount();
+			
+			List<String> columnList = new ArrayList<>();
+			for(int i = 1; i <= columnCount; i++) {
+				columnList.add(rsmd.getColumnName(i));
+			}
+			
 			List<Map<String,Object>> resultList = new ArrayList<>();
 			
 			while(resultSet.next()) {
 				
 				Map<String, Object> resultMap = new HashMap<>();
-				resultMap.put(query, resultMap);
+				
+				for(String column:columnList) {
+					resultMap.put(column, resultSet.getObject(column));
+				}
+				
+				resultList.add(resultMap);
 			}
 			
 			statement.close();
