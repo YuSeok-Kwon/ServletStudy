@@ -16,7 +16,7 @@
 <%
 	MysqlService sql = MysqlService.getInstance();
 	sql.connect();
-	List<Map<String,Object>> = sql.select("SELECT * FROM bookmark ORDER BY id DESC;");
+	List<Map<String,Object>> resultList= sql.select("SELECT * FROM bookmark ORDER BY id DESC;");
  %>
 	<table border=1 class="table text-center">
 		<thead>

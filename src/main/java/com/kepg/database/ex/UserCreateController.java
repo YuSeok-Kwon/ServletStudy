@@ -26,7 +26,7 @@ public class UserCreateController extends HttpServlet{
 		String email = request.getParameter("email");
 		String introduce = request.getParameter("introduce");
 		
-		MysqlService sql = new MysqlService();
+		MysqlService sql = MysqlService.getInstance();
 		
 		sql.connect();
 		
