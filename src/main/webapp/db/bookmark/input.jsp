@@ -12,11 +12,15 @@
 <body>
 	<div class="container">
 		<h1>즐겨찾기 추가</h1>
-		<form method=get action="/db/bookmark/create">
+		<form method=post action="/db/bookmark/create">
+			<div class="col-2">
 			<label>사이트명:</label><br>
 			<input type="text" name="name" class="form-control mb-2"><br>
+			</div>
+			<div class="col-5">
 			<label>사이트 주소:</label><br>
-			<input type="text" name="url" class="form-control col-5"><br>
+			<input type="text" name="url" class="form-control"><br>
+			 </div>
 			<button type="submit" class="btn btn-success">추가</button>
 		</form>
 	</div>

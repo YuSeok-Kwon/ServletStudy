@@ -13,23 +13,33 @@ import com.kepg.common.MysqlService;
 @WebServlet("/db/bookmark/create")
 public class BookmarkCreateController extends HttpServlet{
 	
-	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	
 		
-		PrintWriter out = response.getWriter();
+	@Override
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
 		String name = request.getParameter("name");
 		String url = request.getParameter("url");
+		String id = (request.getParameter("id") != null && !request.getParameter("id").isEmpty()) ? request.getParameter("id") : "-1";
 		
-		String query = "INSERT INTO bookmark"
+		MysqlService sql = MysqlService.getInstance();
+		sql.connect();
+	
+		String query = "";
+	
+		if(id.equals("-1")) {
+		 query = "INSERT INTO bookmark"
 				+ "(name, url)"
 				+ "VALUE"
 				+ "('" + name + "', '" + url + "');";
 		
-		MysqlService sql = new MysqlService();
-		sql.connect();
-		
 		int count = sql.update(query);
+		
+		} else {
+		 query = "DELETE FROM bookmark WHERE id = " + id + ";";
+			
+			int count = sql.update(query);
+		}
 		
 		response.sendRedirect("/db/bookmark/list.jsp");
 		

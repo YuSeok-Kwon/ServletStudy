@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="com.kepg.common.MysqlService" %>   
-<%@ page import="java.sql.ResultSet" %>    
+<%@ page import="java.sql.ResultSet" %> 
+<%@ page import="java.util.*" %>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,11 +12,11 @@
 <title>즐겨찾기 목록</title>
 </head>
 <body>
-<div class="container mt-5 ">
+<div class="container border-0 mt-5 ">
 <%
-	MysqlService sql = new MysqlService();
+	MysqlService sql = MysqlService.getInstance();
 	sql.connect();
-	ResultSet resultset = sql.select("SELECT * FROM bookmark ORDER BY id DESC;");
+	List<Map<String,Object>> = sql.select("SELECT * FROM bookmark ORDER BY id DESC;");
  %>
 	<table border=1 class="table text-center">
 		<thead>
@@ -25,16 +26,17 @@
 			</tr>
 		</thead>
 		<tbody>
+			<h1 class="text-center mb-3">즐겨찾기 목록</h1>
 			<% while(resultset.next()) {
 				String name = resultset.getString("name");
 				String url = resultset.getString("url");
-				String id = resultset.getString("id");%>
+				int id = resultset.getInt("id");%>
 			
 			<tr>
 				<td><%= name %></td>
 				<td>
-					<a href="<%= url %>" target="blank"><%= url %></a>
-					<a href="/db/bookmark/delete?id=<%= id %>">   	[삭제하기]</a>
+					<a href="<%= url %>" target="_blank"><%= url %></a>
+					<a href="/db/bookmark/create?id=<%= id %>" class="text-decoration-none text-muted">   	 [삭제하기]</a>
 				</td>
 			</tr>
 			<% } %>
